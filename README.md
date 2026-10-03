@@ -4,22 +4,59 @@
 **Domain:** Full-Stack Engineering — React.js Fundamentals
 **Week:** Month 2, Week 1 — React Task Manager (Part 1)
 
-**Live Deployment Link:** [https://week-1-react-task-manager-sigma.vercel.app/]
+**Live Deployment Link:** https://week-1-react-task-manager-sigma.vercel.app/
 
 ## Project Description
 
-This project reconstructs the Month 1 vanilla JavaScript Task Manager as a component-driven React application built with Vite. It focuses on functional components, props-based data flow, `useState` for reactive UI updates, and controlled form inputs.
+This project is a React-based version of the Month 1 vanilla JavaScript Task Manager. It was developed using Vite and focuses on building a component-based user interface, passing data through props, managing application state with `useState`, and handling controlled form inputs.
 
-## Setup Instructions
+## Running the Project Locally
+
+To run the project on a local machine, follow these steps.
+
+### Prerequisites
+
+Make sure **Node.js** and **npm** are installed. You can check the npm installation by running:
+
+```bash
+npm -v
+```
+
+### Installation and Setup
+
+**1. Create the React project using Vite**
+
+```bash
+npm create vite@latest week-1-react-task-manager -- --template react
+```
+
+**2. Navigate to the project folder**
+
+```bash
+cd week-1-react-task-manager
+```
+
+**3. Install the required dependencies**
 
 ```bash
 npm install
+```
+
+**4. Start the development server**
+
+```bash
 npm run dev
 ```
 
-Open the local URL Vite prints (usually `http://localhost:5173`).
+After the server starts, open the local URL provided by Vite, usually:
 
-To build for production:
+```text
+http://localhost:5173
+```
+
+### Production Build
+
+To create and preview a production build, run:
 
 ```bash
 npm run build
@@ -28,7 +65,7 @@ npm run preview
 
 ## Component Hierarchy
 
-```
+```text
 App (holds task state)
 ├── Header (displays title + task count)
 ├── TaskForm (controlled input, validation, calls onAddTask)
@@ -36,32 +73,38 @@ App (holds task state)
     └── TaskItem (individual task: complete toggle + delete)
 ```
 
-State lives in `App` and flows down to children via props. `TaskForm`, `TaskList`, and `TaskItem` all receive functions as props (`onAddTask`, `onToggleComplete`, `onDeleteTask`) so they can notify `App` of changes — this is "lifting state up."
+The main task state is maintained inside `App` and passed to the child components through props. Components such as `TaskForm`, `TaskList`, and `TaskItem` receive callback functions to send changes back to `App`. This approach demonstrates the concept of **lifting state up** in React.
 
 ## Features Implemented
 
-- Add new tasks using a controlled form input
-- Display task items dynamically via `.map()` with proper `key` props
-- Toggle task completion status
-- Delete tasks from state
-- Input validation (blocks empty or over-length submissions with an inline error message)
+* Add new tasks through a controlled form
+* Display tasks dynamically using `.map()`
+* Use proper `key` props for rendered task items
+* Mark tasks as completed or incomplete
+* Remove tasks from the application state
+* Validate user input
+* Display an error message when an empty or overly long task is submitted
 
 ## Technologies Used
 
-- React 18
-- Vite
-- Plain CSS (no UI framework)
+* React 18
+* Vite
+* JavaScript (JSX)
+* Plain CSS
 
 ## Learning Outcomes
 
-- How to break a UI into a parent-driven component hierarchy and pass data down via props
-- How to pass callback functions as props so child components can communicate changes back up to a parent (child-to-parent communication)
-- How `useState` triggers re-renders, and why state should never be mutated directly (using functional updates like `setTasks(prev => ...)` instead)
-- The difference between a controlled input (React owns the value) and the plain DOM-based inputs used in the Month 1 vanilla JS version
+* Understanding how to divide a React interface into reusable components
+* Learning how to pass data from parent components to child components using props
+* Understanding child-to-parent communication through callback functions
+* Using `useState` to manage and update application data
+* Understanding why React state should not be modified directly
+* Using functional state updates such as `setTasks(prev => ...)`
+* Understanding the difference between controlled React inputs and traditional DOM-based inputs
 
 ## Project Structure
 
-```
+```text
 week-1-react-task-manager/
 ├── index.html
 ├── package.json
