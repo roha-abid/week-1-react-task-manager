@@ -72,6 +72,7 @@ body {
 .form-page { max-width: 520px; }
 .form-page form { display: flex; flex-direction: column; gap: 16px; }
 .form-page label { display: flex; flex-direction: column; gap: 6px; font-weight: 500; }
+.form-page .preview { max-width: 200px; border-radius: 8px; background: #eef0f4; }
 .form-error { color: var(--danger); font-size: 0.85rem; font-weight: 400; }
 
 @media (max-width: 640px) {
